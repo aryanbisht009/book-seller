@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="book.js" defer></script>
+</head>
+<body>
+    <div class="book-page">
+
+    <!-- BOOK TITLE -->
+    <h2 id="book_title"></h2>
+
+    <!-- MAIN SECTION -->
+    <div class="book-main">
+
+      <!-- LEFT: IMAGES -->
+      <div class="book-images">
+
+        <!-- main image -->
+        <img id="main-image" class="main-img">
+
+      </div>
+
+      <!-- RIGHT: DETAILS -->
+      <div class="book-details">
+
+        <div id="rating" class="rating"></div>
+
+        <div class="price-section">
+          <span id="price" class="price"></span>
+          <span id="original_price" class="original_price"></span>
+          <span id="discount" class="discount"></span>
+        </div>
+
+        <div id="stock" class="stock"></div>
+        <div id="delivery" class="delivery"></div>
+
+        <div class="buttons">
+          <button class="buy">Buy Now</button>
+          <button class="cart">Add to Cart</button>
+        </div>
+
+        <div class="pincode">
+          Check Pincode:
+          <input type="text" placeholder="110019">
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="description">
+      <h3>About this Book</h3>
+      <p id="description"></p>
+    </div>
+
+  </div>
+</body>
+</html>
