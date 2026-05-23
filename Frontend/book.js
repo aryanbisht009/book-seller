@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 // displaying books
 function displayBook(book) {
 
-  document.getElementById("book-title").innerText = book.name;
+  document.getElementById("book-title").innerText = book.book_name;
 
   document.getElementById("main-image").src =
     `cards/${book.image}`;

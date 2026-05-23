@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="book-card">
 
             <div class="book-image">
-              <img src="cards/${book.image}" alt="${book.name}">
+              <img src="cards/${book.image}" alt="${book.book_name}">
             </div>
 
             <div class="rating">
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
 
             <div class="book-title">
-              ${book.name}
+              ${book.book_name}
             </div>
 
             <div class="price-row">
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   .then(data=>{
     let slidesHtml="";
     data.forEach((slideshow,index)=>{
-      slidesHtml+=`<img class="slides" src="slide_image/${slideshow.slide_image}"
+      slidesHtml+=`<img class="slides" src="slide_image/${slideshow.image}"
       style="display:${index===0?'block':'none'};">;`
     });
     container_slide.innerHTML=slidesHtml;
