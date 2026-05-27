@@ -31,31 +31,33 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         allCards += `
-          <div class="book-card">
+          <a href="book.html?id=${book.id}" class="book-link">
+            <div class="book-card">
 
-            <div class="book-image">
-              <img src="cards/${book.image}" alt="${book.book_name}">
+              <div class="book-image">
+                <img src="cards/${book.main_image}" alt="${book.book_name}">
+              </div>
+
+              <div class="rating">
+                ⭐ ${book.rating}
+              </div>
+
+              <div class="book-title">
+                ${book.book_name}
+              </div>
+
+              <div class="price-row">
+                <span class="discount-price">₹${book.price}</span>
+                <span class="original-price">₹${book.original_price}</span>
+                <span class="discount">${discountPercent}% OFF</span>
+              </div>
+
+              <div class="author">
+                ${book.author}
+              </div>
+
             </div>
-
-            <div class="rating">
-              ⭐ ${book.rating}
-            </div>
-
-            <div class="book-title">
-              ${book.book_name}
-            </div>
-
-            <div class="price-row">
-              <span class="discount-price">₹${book.price}</span>
-              <span class="original-price">₹${book.original_price}</span>
-              <span class="discount">${discountPercent}% OFF</span>
-            </div>
-
-            <div class="author">
-              ${book.author}
-            </div>
-
-          </div>
+          </a>
         `;
       });
 

@@ -1,3 +1,8 @@
+let images=[];
+let currentIndex=0
+
+const bookImage=document.getElementById("book-image");
+
 // get book id from url
 document.addEventListener("DOMContentLoaded",()=>{
     const params=new URLSearchParams(window.location.search);
@@ -10,18 +15,23 @@ document.addEventListener("DOMContentLoaded",()=>{
     // fetch book from db
     fetch(`http://localhost:3000/books/${bookId}`)
         .then(res=> res.json())
-        .then(book=>{
-            displayBook(book)
+        .then(books=>{
+          const book=books[0]
+          images=[
+            `cards/${book.main_image}`,
+            ...books.map(item=>`book_detail_img/${item.detail_image}`)
+          ];
+          console.log(images)
+          displayBook(book,images)
         })
         .catch(err=>console.error(err));
 });
 // displaying books
-function displayBook(book) {
+function displayBook(book,images) {
+  document.getElementById("book_title").innerText = book.book_name;
 
-  document.getElementById("book-title").innerText = book.book_name;
-
-  document.getElementById("main-image").src =
-    `cards/${book.image}`;
+  bookImage.src =
+    `${images[currentIndex]}`;
 
   document.getElementById("rating").innerText =
     `⭐ ${book.rating}`;
@@ -41,11 +51,32 @@ function displayBook(book) {
     `${discount}% OFF`;
 
   document.getElementById("stock").innerText =
-    books.Stock || "Not available";
+    book.stock || "Not available";
 
   document.getElementById("delivery").innerText =
-    books.Delivery || "No delivery info avalaible";
+    book.delivery || "No delivery info avalaible";
 
-  document.getElementById("description").innerText =
-    books.Description || "No description available";
+  document.getElementById("description-text").innerText =
+    book.description || "No description available";
 }
+//next button
+document.getElementById("next-btn")
+.addEventListener("click",()=>{
+  currentIndex++;
+  if(currentIndex>=images.length){
+    currentIndex=0;
+  }
+  // console.log(currentIndex)
+  bookImage.src=images[currentIndex];
+});
+
+//previous button
+document.getElementById("prev-btn")
+.addEventListener("click",()=>{
+  currentIndex--;
+  if(currentIndex<=0){
+    currentIndex=images.length-1;
+  }
+  console.log(currentIndex)
+  bookImage.src=images[currentIndex];
+});
